@@ -16,7 +16,7 @@ module:hook("server-starting", function()
 end)
 module:hook("server-started", ready)
 module:hook("server-stopping", function()
-	sd.notifyt { STATUS = "server-stopping" };
+	sd.notifyt { STOPPING = 1, STATUS = "server-stopping" };
 end)
 module:hook("server-stopped", function()
 	sd.notifyt { STATUS = "server-stopped" };
