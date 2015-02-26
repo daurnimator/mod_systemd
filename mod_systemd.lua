@@ -28,7 +28,7 @@ module:hook("config-reloaded", ready, -100)
 
 -- log direct to the systemd journal
 local priorities = {
-	error = 3;
+	error = 2; -- Prosody maps error to critical
 	warn = 4;
 	info = 6;
 	debug = 7;
