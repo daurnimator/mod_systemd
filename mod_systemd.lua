@@ -21,6 +21,10 @@ end)
 module:hook("server-stopped", function()
 	sd.notifyt { STATUS = "server-stopped" };
 end)
+module:hook("config-reloaded", function()
+	sd.notifyt { RELOADING = 1, STATUS = "config-reloading" };
+end, 100)
+module:hook("config-reloaded", ready, -100)
 
 -- log direct to the systemd journal
 local priorities = {
