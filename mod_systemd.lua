@@ -8,12 +8,13 @@ local sj = require "systemd.journal"
 
 module:set_global() -- Global module
 
+local function ready()
+	sd.notifyt { READY = 1, STATUS = "running" };
+end
 module:hook("server-starting", function()
 	sd.notifyt { STATUS = "server-starting" };
 end)
-module:hook("server-started", function()
-	sd.notifyt { READY = 1, STATUS = "server-started" };
-end)
+module:hook("server-started", ready)
 module:hook("server-stopping", function()
 	sd.notifyt { STATUS = "server-stopping" };
 end)
